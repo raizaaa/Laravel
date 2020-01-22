@@ -85,3 +85,84 @@ Route::get('biodata/{nama}/{alamat}/{sekolah}/{umur}',function($a,$b,$c,$d)
     .$a.' sekolah di '.$c.'<br>'
     .$a.' berumur '.$d.' tahun';
 });
+
+//Route optional parameter
+Route::get('name/{param?}',function($a="kenedy"){
+    return 'Your name is '.$a;
+});
+
+Route::get('pesan/{makan?}/{minum?}/{harga?}',function($makan=null,$minum=null,$harga=null){
+    if (isset($makan)) {
+        $makan = 'Anda Memesan '.$makan;
+        echo $makan;
+    }
+    if (isset($minum)) {
+        $minum = " & ". $minum;
+        echo $minum;
+    }
+    if (!$makan && !$minum) {
+        return "Anda Belum Memesan sesuatu. Silahkan Memesan terlebih dahulu-!";
+    }
+    if (isset($harga)) {
+        $size = " dengan harga $ ".$harga;
+        echo $size;
+        if($harga <= 0) {
+            echo ' Maaf Harga Tidak Valid';
+        }
+        elseif ($harga >= 35000) {
+            echo ' dan size Large';
+        }
+        elseif ($harga >= 25000) {
+            echo ' dan size Medium';
+        }
+        elseif ($harga < 25000) {
+            echo ' dan size Small';
+        }
+    }
+});
+
+
+Route::get('tni/{nama?}/{beba?}/{umur?}',function($nama=null,$beba=null,$umur=null){
+    if (isset($nama)) {
+        $nama = 'Nama : '.$nama;
+        echo $nama.'<br>';
+    }
+    if (isset($beba)) {
+        $keb = 'Berat Badan : '.$beba.' kg';
+        echo $keb;
+        if ($beba >= 100) {
+            echo ' (Maaf berat badan anda tidak valid)';
+        }
+        elseif ($beba >=76 && $beba <=100) {
+            echo ' (Anda harus menurunkan berat badan anda)';
+        }
+        elseif ($beba >= 65 && $beba <=75) {
+            echo ' (Berat Badan Anda Ideal)';
+        }
+        elseif ($beba >= 50 && $beba <=64) {
+            echo ' (Naikkan Berat badan anda)';
+        }
+        elseif($beba < 50) {
+            echo ' (Anda Kurang Nutrisi)';
+        }
+    }
+    if (isset($umur)) {
+        $usia = '<br>Umur : '.$umur.' tahun';
+        echo $usia;
+        if ($umur < 30) {
+            echo ' (Jabatan anda adalah dibawah Perwira)';
+        }
+        elseif ($umur >= 30 && $umur < 40) {
+            echo ' (Jabatan anda adalah Perwira)';
+        }
+        elseif ($umur >= 40 && $umur < 50) {
+            echo ' (Jabatan anda adalah Laksamana)';
+        }
+        elseif ($umur >= 50 && $umur < 60) {
+            echo ' (Jabatan anda adalah Jendral)';
+        }
+    }
+
+
+
+});
