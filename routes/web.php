@@ -162,7 +162,54 @@ Route::get('tni/{nama?}/{beba?}/{umur?}',function($nama=null,$beba=null,$umur=nu
             echo ' (Jabatan anda adalah Jendral)';
         }
     }
+});
 
 
+// Akses Model Post
+Route::get('testmodel/1',function()
+{
+    // select * from posts
+    $query = App\Post::all();
+    return $query;
+});
 
+
+Route::get('testmodel/2',function()
+{
+    // select * from posts
+    $query = App\Post::find(1);
+    return $query;
+});
+
+Route::get('testmodel/3',function()
+{
+    // select * from posts
+    $query = App\Post::where('title','like','%cepat nikah%')->get();
+    return $query;
+});
+
+Route::get('testmodel/4',function()
+{
+    // select * from posts
+    $post = App\Post::find(1);
+    $post->title = "Ciri Keluarga Sakinah";
+    $post->save();
+    return $post;
+});
+
+Route::get('testmodel/5',function()
+{
+    // select * from posts
+    $post = App\Post::find(1);
+    $post->delete();
+});
+
+Route::get('testmodel/6',function()
+{
+    // select * from posts
+    $post = new App\Post;
+    $post->title = "7 Amalan Pembuka Jodoh";
+    $post->content = "shalat malam, sedekah, puasa sunah, silaturahmi, senyum, doa, tobat";
+    $post->save();
+    return $post;
 });
