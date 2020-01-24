@@ -4,9 +4,9 @@ namespace App;
 
 use Illuminate\Database\Eloquent\Model;
 
-class Post extends Model
+class Biodata extends Model
 {
     //
+
+ public $table = 'biodata';
 }
-
-

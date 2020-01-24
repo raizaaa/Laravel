@@ -213,3 +213,34 @@ Route::get('testmodel/6',function()
     $post->save();
     return $post;
 });
+
+
+Route::get('first',function(){
+    $data = App\Biodata::select('id','nama','hobi')
+    ->first();
+    return $data;
+});
+
+
+Route::get('tiga',function()
+{
+    // select * from posts
+    $query = App\Biodata::all()
+    ->take(3);
+    ;
+    return $query;
+});
+
+Route::get('input/{nis}/{nama}/{alamat}/{jenis_kelamin}/{tempat_lahir}/{tanggal_lahir}/{hobi}',function($nis,$nama,$alamat,$jenis_kelamin,$tempat_lahir,$tanggal_lahir,$hobi)
+{
+    $data = new App\Biodata;
+    $data->nis = $nis;
+    $data->nama = $nama;
+    $data->alamat = $alamat;
+    $data->jenis_kelamin = $jenis_kelamin;
+    $data->tempat_lahir = $tempat_lahir;
+    $data->tanggal_lahir = $tanggal_lahir;
+    $data->hobi = $hobi;
+    $data->save();
+    return $data;
+});

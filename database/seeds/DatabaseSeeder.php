@@ -15,5 +15,6 @@ class DatabaseSeeder extends Seeder
 
         $this->call(PostsTableSeeder::class);
         $this->call(Siswa::class);
+        $this->call(Biodata::class);
     }
 }
