@@ -16,5 +16,7 @@ class DatabaseSeeder extends Seeder
         $this->call(PostsTableSeeder::class);
         $this->call(Siswa::class);
         $this->call(Biodata::class);
+        factory(App\Tabungan::class, 100)->create();
+        factory(App\Customer::class, 1000)->create();
     }
 }
