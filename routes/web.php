@@ -244,3 +244,15 @@ Route::get('input/{nis}/{nama}/{alamat}/{jenis_kelamin}/{tempat_lahir}/{tanggal_
     $data->save();
     return $data;
 });
+
+Route::get('latihan','LatihanController@halo');
+Route::get('tambah/{a?}/{b?}','LatihanController@tambah');
+Route::get('kurang/{a?}/{b?}','LatihanController@kurang');
+Route::get('kali/{a?}/{b?}','LatihanController@kali');
+Route::get('bagi/{a?}/{b?}','LatihanController@bagi');
+Route::get('pertambahan/{a?}/{b?}','LatihanController@pertambahan');
+Route::get('pengurangan/{a?}/{b?}','LatihanController@pengurangan');
+Route::get('perkalian/{a?}/{b?}','LatihanController@perkalian');
+Route::get('pembagian/{a?}/{b?}','LatihanController@pembagian');
+Route::get('data-1','LatihanController@loop');
+Route::get('data-2','LatihanController@data');
