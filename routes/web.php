@@ -256,3 +256,17 @@ Route::get('perkalian/{a?}/{b?}','LatihanController@perkalian');
 Route::get('pembagian/{a?}/{b?}','LatihanController@pembagian');
 Route::get('data-1','LatihanController@loop');
 Route::get('data-2','LatihanController@data');
+
+// CRUD TABUNGAN
+Route::get('tabungan','TabunganController@index');
+Route::get('tabungan/{id}','TabunganController@show');
+Route::get('tabungan-input/{nis}/{nama}/{kelas}/{jml}','TabunganController@store');
+Route::get('tabungan-edit/{id}/{nis}/{nama}/{kelas}/{jml}','TabunganController@edit');
+Route::get('tabungan-hapus/{id}','TabunganController@delete');
+// Crud Customer
+Route::get('customer','CustomerController@index');
+Route::get('customer/{id}','CustomerController@show');
+Route::get('customer-input/{code}/{nama}/{email}/{country}/{city}/{address}/{contact}','CustomerController@store');
+Route::get('customer-edit/{id}/{code}/{nama}/{email}/{country}/{city}/{address}/{contact}','CustomerController@edit');
+Route::get('customer-hapus/{id}','CustomerController@delete');
+
