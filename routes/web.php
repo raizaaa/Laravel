@@ -270,3 +270,7 @@ Route::get('customer-input/{code}/{nama}/{email}/{country}/{city}/{address}/{con
 Route::get('customer-edit/{id}/{code}/{nama}/{email}/{country}/{city}/{address}/{contact}','CustomerController@edit');
 Route::get('customer-hapus/{id}','CustomerController@delete');
 
+// Passing Data
+Route::get('pass','PracticeController@pass');
+Route::get('pass1','PracticeController@pass1');
+Route::get('pass-tabungan','PracticeController@pass2');
